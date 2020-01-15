@@ -16,4 +16,8 @@ jobs:
     - run: dotnet build -c Release
     - run: dotnet test -c Release
     - run: dotnet publish -c Release -o mercuryhealth-web
+    - uses: Azure/webapps-deploy@v1
+      with:
+        publish-profile: ${{ AzureWebAppPublishProfile }}
+        package: ./mercuryhealth-web
       
