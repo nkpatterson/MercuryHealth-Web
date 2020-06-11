@@ -39,8 +39,8 @@ namespace AspNetCoreVueStarter.Controllers
 
         [HttpPost]
         public void Post() {
-            var zipCode = Request.QueryString["zipCode"];
-            _logger.Warn($"User posted zip code:" + zipCode);
+            var zipCode = Request.Query["zipCode"];
+            _logger.LogWarning($"User posted zip code:" + zipCode);
         }
     }
 }
