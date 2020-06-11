@@ -36,5 +36,10 @@ namespace AspNetCoreVueStarter.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public void Post(string zipCode) {
+            _logger.LogInformation($"User posted zip code: {zipCode}");
+        }
     }
 }
