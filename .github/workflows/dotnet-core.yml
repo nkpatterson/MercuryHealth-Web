@@ -35,6 +35,6 @@ jobs:
       id: kv
       
     - uses: Azure/webapps-deploy@v1
-			with:
-			  publish-profile: ${{ steps.myGetSecretAction.outputs.nkp-mercuryhealth-web-publishsettings }}
-			  package: ./mercuryhealth-web
+      with:
+        publish-profile: ${{ steps.myGetSecretAction.outputs.nkp-mercuryhealth-web-publishsettings }}
+        package: ./mercuryhealth-web
