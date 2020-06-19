@@ -23,3 +23,18 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      
+      
+    - uses: Azure/login@v1
+      with:
+        creds: ${{ secrets.MERCURYHEALTHWEBSP }}
+    - uses: Azure/get-keyvault-secrets@v1.0
+      with:
+        keyvault: "nkp-mercuryhealth-kv"
+        secrets: 'nkp-mercuryhealth-web-publishsettings'
+      id: kv
+      
+    - uses: Azure/webapps-deploy@v1
+			with:
+			  publish-profile: ${{ steps.myGetSecretAction.outputs.nkp-mercuryhealth-web-publishsettings }}
+			  package: ./mercuryhealth-web
