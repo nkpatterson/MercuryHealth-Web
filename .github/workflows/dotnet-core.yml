@@ -23,7 +23,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-      
+    - name: Publish
+      run: dotnet publish --configuration Release -o mercuryhealth-web
       
     - uses: Azure/login@v1
       with:
