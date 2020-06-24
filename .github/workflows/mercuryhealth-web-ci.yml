@@ -24,6 +24,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: javascript, csharp
+
     - name: Install dependencies
       run: dotnet restore
     - name: Build
@@ -32,9 +38,9 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
     - name: Publish
       run: dotnet publish --configuration Release -o mercuryhealth-web
-      
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
+
+    - name: Zip Asset
+      run: zip -r mercuryhealth-web.zip ./mercuryhealth-web
     
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
@@ -55,10 +61,6 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: true
-        
-        
-    - name: Zip Asset
-      run: zip -r mercuryhealth-web.zip ./mercuryhealth-web
         
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
