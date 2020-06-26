@@ -59,3 +59,11 @@ jobs:
         asset_path: ./mercuryhealth-web.zip
         asset_name: mercuryhealth-web.zip
         asset_content_type: application/zip
+     
+    - name: Azure Pipelines Action
+      uses: Azure/pipelines@v1
+      with:
+        azure-devops-project-url: "https://dev.azure.com/nkpatterson/Mercury Health Group"
+        azure-pipeline-name: "MercuryHealth-Web-CD"
+        azure-devops-token: ${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}
+    
