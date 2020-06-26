@@ -30,7 +30,7 @@ jobs:
       run: dotnet publish --configuration Release -o mercuryhealth-web
 
     - name: Zip Asset
-      run: zip -r mercuryhealth-web.zip ./mercuryhealth-web
+      run: cd mercuryhealth-web && zip -r ../mercuryhealth-web.zip **
     
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.17.2
