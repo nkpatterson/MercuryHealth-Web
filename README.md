@@ -1,4 +1,9 @@
-﻿# ASP.NET Core Vue Starter
+# Current Status
+![mercuryhealth-web-ci-main](https://github.com/nkpatterson/MercuryHealth-Web/workflows/mercuryhealth-web-ci-main/badge.svg)
+![Deployment](https://vsrm.dev.azure.com/nkpatterson/_apis/public/Release/badge/2a385f83-c6ca-4fbd-8a79-4ed37cc3b80b/3/5)
+
+
+# ASP.NET Core Vue Starter
 
 The repository contains an ASP.&#8203;NET Core + Vue.js starter template. The template runs on ASP.NET Core 3.0 and is created by Vue CLI 4.0 with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
 
