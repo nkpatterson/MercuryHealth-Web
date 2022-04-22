@@ -2,7 +2,7 @@ name: mercuryhealth-web-ci-pr
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -24,9 +24,12 @@ jobs:
         dotnet-version: 3.1.101
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
+      uses: github/codeql-action/init@v2
       with:
         languages: javascript, csharp
+
+    # - name: Autobuild
+    #   uses: github/codeql-action/autobuild@v2
 
     - name: Install dependencies
       run: dotnet restore
@@ -36,4 +39,4 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@v2
